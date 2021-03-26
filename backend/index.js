@@ -1,9 +1,7 @@
 import csv from 'csv-parser';
 import fs from 'fs';
-import { model } from './database/mongoose_connection';
-
-const Cat = model('Cat', { name: String, age: String });
-
+import { model, Schema } from 'mongoose';
+//1 - Schema, 2 - Model, 3 - Instance
 const handleFindName = (res) => {
     if(res.length > 0){
         console.log(res)
@@ -11,6 +9,13 @@ const handleFindName = (res) => {
         console.log('Não foi encontrado!')
     }
 }
+
+const kittySchema = new Schema({
+    name: String,
+    age: String,
+});
+
+const Cat = model('Cat', kittySchema);
 
 Cat.find({ age: /^7 years/}).then(handleFindName).catch(err => console.log(err));
 
