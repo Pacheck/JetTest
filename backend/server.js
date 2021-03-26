@@ -17,7 +17,8 @@ class App {
 
   database() {
     console.log(database.URI)
-    connect(database.URI, { useNewUrlParser: true, useUnifiedTopology: true  });
+    connect(database.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
+    .then(() => console.log('DB Connected!')).catch(err => console.log(err))
   }
 
   middlewares() {
