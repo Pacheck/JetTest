@@ -2,9 +2,9 @@ import { connect, connection, model } from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const { DATABASE_USER, DATABASE_PASSWORD } = process.env;
+const { DATABASE_USER, DATABASE_PASSWORD, DATABASE_URI } = process.env;
 
-connect(`mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@operadores.dy2uj.mongodb.net/kitty`, 
+connect(`mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_URI}`, 
 {useNewUrlParser: true, useUnifiedTopology: true});
 
 connection
