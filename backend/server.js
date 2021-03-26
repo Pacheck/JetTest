@@ -16,6 +16,7 @@ class App {
   }
 
   database() {
+    console.log(database.URI)
     connect(database.URI, { useNewUrlParser: true, useUnifiedTopology: true  });
   }
 
@@ -27,4 +28,5 @@ class App {
     this.express.use(require("./routes/routes"));
   }
 }
+
 module.exports = new App().express;
