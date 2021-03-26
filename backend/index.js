@@ -19,6 +19,9 @@
 
 // Cat.find({ age: /^7 years/}).then(handleFindName).catch(err => console.log(err));
 
+// const kitty = new Cat({ name: 'Negão', age: '2 years' });
+// kitty.save().then(() => console.log('meow')).catch(err => console.log(err));
+
 // const results = [];
 
 // fs.createReadStream('./assets/mockdata.csv')
