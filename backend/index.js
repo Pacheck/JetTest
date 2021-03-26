@@ -1,11 +1,6 @@
 import csv from 'csv-parser';
 import fs from 'fs';
-import { connect, connection, model } from './database/mongoose_connection';
-
-connect('mongodb+srv://pacheck:qaro41kine@operadores.dy2uj.mongodb.net/kitty', 
-{useNewUrlParser: true, useUnifiedTopology: true});
-
-connection.once('open', () => console.log('connected!')).on('error', err => console.log('Error', err))
+import { model } from './database/mongoose_connection';
 
 const Cat = model('Cat', { name: String, age: String });
 

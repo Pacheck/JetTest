@@ -11,4 +11,4 @@ connection
 .once('open', () => console.log('connected!'))
 .on('error', err => console.log('Error', err));
 
-module.exports = { connect, connection, model };
+module.exports = { model };
