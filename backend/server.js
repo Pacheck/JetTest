@@ -1,5 +1,5 @@
 import express from 'express';
-import database from './src/database/mongoose_connection';
+import database from './src/database/mongoose_config';
 import { connect } from 'mongoose';
 
 class App {
