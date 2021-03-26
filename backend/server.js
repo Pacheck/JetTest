@@ -1,5 +1,5 @@
 import express from 'express';
-import database from './src/database/mongoose_config';
+import MongoDB from './src/database/mongoose_config';
 import { connect } from 'mongoose';
 
 class App {
@@ -16,8 +16,8 @@ class App {
   }
 
   database() {
-    console.log(database.URI)
-    connect(database.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
+    console.log(MongoDB.URI);
+    connect(MongoDB.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
     .then(() => console.log('DB Connected!')).catch(err => console.log(err))
   }
 
