@@ -12,10 +12,12 @@ routes.get("/teste", (req, res) => {
     age: String,
 });
 
-const Cat = model('Cat', kittySchema);
+  const Cat = model('Cat', kittySchema);
 
-const kitty = new Cat({ name: 'Negão', age: '2 years' });
-kitty.save().then(() => console.log('meow')).catch(err => console.log(err));
+  const kitty = new Cat({ name: 'Negão', age: '2 years' });
+  kitty.save().then(() => console.log('meow')).catch(err => console.log({ err }));
+
+  return res.send('criado')
 })
 
 module.exports = routes;
