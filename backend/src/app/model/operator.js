@@ -1,8 +1,15 @@
 import { model, Schema } from 'mongoose';
 
 const operatorSchema = Schema({
-    name: String,
-    clients: Array,
+    name: {
+        type: String,
+        required: true,
+    },
+
+    clients: {
+        type: Array,
+        required: true,
+    }
 })
 
 const operatorModel = model('operator', operatorSchema);
