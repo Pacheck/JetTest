@@ -1,6 +1,5 @@
 import express from 'express';
 const routes = express.Router();
-// import OperatorModel from '../src/app/model/operator';
 import OperatorController from '../src/app/controller/operator_controller';
 
 
@@ -10,6 +9,10 @@ routes.get("/", function(req, res) {
 
 routes.get("/operators", OperatorController.index);
 
-routes.post("/operators", OperatorController.store)
+routes.post("/operators", OperatorController.store);
+
+routes.delete("/operators/:id", OperatorController.delete);
+
+routes.put("/operators/:id", OperatorController.update);
 
 module.exports = routes;
