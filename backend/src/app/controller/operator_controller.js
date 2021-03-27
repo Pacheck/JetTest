@@ -4,14 +4,14 @@ class OperatorController {
 
     async store(req, res){
         await Operator.create(req.body)
-        .then(res => res.status().json({ message: '' }))
-        .catch(err => res.status().json({ message: '' }))
+        .then(res => res.status(201).json({ message: 'Resource created!' }))
+        .catch(err => res.status(400).json({ message: 'Could not create content' }))
     }
 
     async index(req, res){
         await Operator.find({})
         .then(res => res.status(201).json({ message: 'Content created! '}))
-        .catch(err => res.status(400).json({ message: 'Could not create content' }));
+        .catch(err => res.status(400).json({ message: 'Content not found' }));
     }
 
     async delete(req, res){
