@@ -11,7 +11,7 @@ let s3 = new aws.S3({
   databasePassword: process.env.DATABASE_PASSWORD,
 });
 
-console.log(s3.databaseURI, s3.databaseUser);
+console.log('S3 CONFIGURATION:', s3);
 
 // DATABASE_USER=pacheck
 // DATABASE_PASSWORD=qaro41kine
