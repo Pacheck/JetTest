@@ -3,9 +3,12 @@ import Operator from '../model/operator';
 class OperatorController { 
 
     async store(req, res){
-        await Operator.create(req.body)
-        .then(res => res.status(201).json({ message: 'Resource created!' }))
-        .catch(err => res.status(400).json({ message: err }))
+        try{
+            await Operator.create(req.body)
+            .then(res => res.status(201).json({ message: 'Resource created! '}))
+        }catch(err){
+            res.status(400).json({ message: 'Error' })
+        }
     }
 
     async index(req, res){
