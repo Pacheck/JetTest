@@ -1,15 +1,15 @@
 import express from 'express';
 const routes = express.Router();
-import OperatorModel from '../src/app/model/operator';
+// import OperatorModel from '../src/app/model/operator';
+import OperatorController from '../src/app/controller/operator_controller';
 
 
 routes.get("/", function(req, res) {
-  return res.send("Minha primeira rota!");
+  return res.send("Rota estabelecida");
 });
 
-routes.get("/teste", (req, res) => {
-  OperatorModel();
-  return res.send('criado');
-})
+routes.get("/operators", OperatorController.index);
+
+routes.post("operators")
 
 module.exports = routes;
