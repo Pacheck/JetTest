@@ -20,4 +20,4 @@ const createOperator = async() => {
     return operator;
 }
 
-export default createOperator;
+export default createOperator();
