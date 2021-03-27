@@ -10,6 +10,6 @@ routes.get("/", function(req, res) {
 
 routes.get("/operators", OperatorController.index);
 
-routes.post("operators", OperatorController.store)
+routes.post("/operators", OperatorController.store)
 
 module.exports = routes;
