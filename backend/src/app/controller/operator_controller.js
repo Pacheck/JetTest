@@ -5,7 +5,7 @@ class OperatorController {
     async store(req, res){
         await Operator.create(req.body)
         .then(res => res.status(201).json({ message: 'Resource created!' }))
-        .catch(err => res.status(400).json({ message: 'Could not create content' }))
+        .catch(err => res.status(400).json({ message: err }))
     }
 
     async index(req, res){
