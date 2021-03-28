@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Operator from '../model/operator';
 
 class OperatorController { 
-    
+
     async index(request, response){
         try {
             const operator = await Operator.find({});
@@ -45,6 +45,9 @@ class OperatorController {
             response.status(204).json({ message: 'No content found '})
         }
     }
+
+
+
 }
 
 export default new OperatorController();
