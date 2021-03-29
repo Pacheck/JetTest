@@ -6,7 +6,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "babel-node server.js"
+    "start": "nodemon server.js --exec babel-node"
   },
   "license": "MIT",
   "devDependencies": {
