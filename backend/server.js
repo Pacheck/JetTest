@@ -3,7 +3,6 @@ import csv from 'csv-parser';
 import fs from 'fs';
 import MongoDB from './src/database/mongoose_config';
 import { connect } from 'mongoose';
-import Clients from './src/app/model/client';
 class App {
   constructor() {
     this.express = express();
@@ -22,14 +21,15 @@ class App {
     fs.createReadStream('./assets/mockdata.csv')
     .pipe(csv({}))
     .on('data', (data) => this.allClients.push(data))
-    .on('end', () => this.LoadAndSaveSVG());
+    .on('end', () => null);
+    this.LoadAndSaveSVG()
   }
 
   async LoadAndSaveSVG(){
-    console.log(this.allClients);
-    this.allClients.forEach(async(client) => {
-      await Clients.create(client);
-    })
+    // console.log(this.allClients);
+    // this.allClients.forEach(async(client) => {
+    //   await Clients.create(client);
+    // })
     // if(operators.length > 0){
     //   console.log('loading data..')
     //   let clientsCounter = 0;
@@ -57,7 +57,7 @@ class App {
   async database() {
     await connect(MongoDB.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
     .then(() => console.log('DB Connected!')).catch(err => console.log(err));
-    // this.importCSV();
+    this.importCSV();
   }
 
   middlewares() {
