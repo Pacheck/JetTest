@@ -5,9 +5,10 @@ class OperatorController {
     async index(request, response){
         try {
             const operator = await Operator.find({});
+            console.log(operator);
             return response.status(200).json(operator);
         }catch(err){
-            return response.status(400).json({ message: 'Content not found' }) 
+            return response.status(400).json({ message: 'Error at index' }) 
         }
     }
 
