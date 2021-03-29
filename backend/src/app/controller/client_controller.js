@@ -3,7 +3,7 @@ import Client from '../model/client';
 class ClientController {
     async index(request, response){
         try{
-            const client = await Client.find({}).then(res => console.log(res)).catch(err => console.log(err))
+            const client = await Client.find({});
             return response.status(200).json(client);
         }catch(err){
             return response.status(400).json({ message: 'Error at showlist' })
