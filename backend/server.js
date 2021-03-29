@@ -57,7 +57,7 @@ class App {
   async database() {
     await connect(MongoDB.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
     .then(() => console.log('DB Connected!')).catch(err => console.log(err));
-    this.importCSV();
+    // this.importCSV();
   }
 
   middlewares() {
