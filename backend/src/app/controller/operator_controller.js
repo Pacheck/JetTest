@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 import Operator from '../model/operator';
-
 class OperatorController { 
 
     async index(request, response){
@@ -36,8 +35,6 @@ class OperatorController {
     async update(request, response){
         const { id } = request.params;
         const { body } = request;
-        console.log(id);
-        console.log(body);
         try {
             const operator = await Operator.updateOne({ id }, body)
             response.status(200).json(operator)
@@ -45,9 +42,6 @@ class OperatorController {
             response.status(204).json({ message: 'No content found '})
         }
     }
-
-
-
 }
 
 export default new OperatorController();

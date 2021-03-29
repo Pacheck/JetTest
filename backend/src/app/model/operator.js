@@ -15,4 +15,6 @@ const operatorSchema = Schema({
     }
 })
 
-export default model('operator', operatorSchema);
+const OperatorModel = model('operator', operatorSchema);
+
+export default OperatorModel;
