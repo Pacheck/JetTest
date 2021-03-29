@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import csv from 'csv-parser';
 import fs from 'fs';
 import MongoDB from './src/database/mongoose_config';
@@ -61,6 +62,7 @@ class App {
   }
 
   middlewares() {
+    this.express.use(cors())
     this.express.use(express.json());
   }
 
