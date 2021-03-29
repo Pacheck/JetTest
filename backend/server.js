@@ -3,33 +3,61 @@ import csv from 'csv-parser';
 import fs from 'fs';
 import MongoDB from './src/database/mongoose_config';
 import { connect } from 'mongoose';
-
+import Clients from './src/app/model/client';
 class App {
   constructor() {
     this.express = express();
+    this.allClients = [];
 
-    this.importCSV();
     this.database();
     this.middlewares();
     this.routes();
 
-    this.express.listen(process.env.PORT || 3001, () =>
-      console.log(`Sua API REST está funcionando na porta 3001 `)
-    );
+    this.express.listen(process.env.PORT || 3001);
   }
 
-  importCSV() {
+  async importCSV() {
     console.log('importing csv file..');
 
     fs.createReadStream('./assets/mockdata.csv')
     .pipe(csv({}))
-    .on('data', (data) => results.push(data))
-    .on('end', () => console.log(results));
+    .on('data', (data) => this.allClients.push(data))
+    .on('end', () => this.LoadAndSaveSVG());
   }
 
-  database() {
-    connect(MongoDB.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
-    .then(() => console.log('DB Connected!')).catch(err => console.log(err))
+  async LoadAndSaveSVG(){
+    console.log(this.allClients);
+    this.allClients.forEach(async(client) => {
+      await Clients.create(client);
+    })
+    // if(operators.length > 0){
+    //   console.log('loading data..')
+    //   let clientsCounter = 0;
+    //   let operatorsCounter = 0;
+
+    //   while(true){
+    //     if(clientsCounter >= this.allClients.length){
+    //         break;
+    //     }
+
+    //     if(operatorsCounter == operators.length){
+    //         operatorsCounter = 0;
+    //     }
+        
+    //     operators[operatorsCounter].clients.push(this.allClients[clientsCounter]);
+        
+
+    //     clientsCounter++;
+    //     operatorsCounter++;
+    //   }
+    //   return this.updateDataBase(operators);
+    // }
+  }
+
+  async database() {
+    await connect(MongoDB.URI, { useNewUrlParser: true, useUnifiedTopology: true  })
+    .then(() => console.log('DB Connected!')).catch(err => console.log(err));
+    this.importCSV();
   }
 
   middlewares() {
@@ -41,4 +69,4 @@ class App {
   }
 }
 
-module.exports = new App().express;
+module.exports = new App();
