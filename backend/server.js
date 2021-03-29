@@ -21,8 +21,8 @@ class App {
     fs.createReadStream('./assets/mockdata.csv')
     .pipe(csv({}))
     .on('data', (data) => this.allClients.push(data))
-    .on('end', () => null);
-    this.LoadAndSaveSVG()
+    .on('end', () => this.LoadAndSaveSVG());
+    
   }
 
   async LoadAndSaveSVG(){
