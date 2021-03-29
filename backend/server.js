@@ -26,10 +26,9 @@ class App {
   }
 
   async LoadAndSaveSVG(){
-    // console.log(this.allClients);
-    // this.allClients.forEach(async(client) => {
-    //   await Clients.create(client);
-    // })
+    this.allClients.forEach(async(client) => {
+      await Clients.create(client);
+    })
     // if(operators.length > 0){
     //   console.log('loading data..')
     //   let clientsCounter = 0;
