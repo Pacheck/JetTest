@@ -3,6 +3,7 @@ import csv from 'csv-parser';
 import fs from 'fs';
 import MongoDB from './src/database/mongoose_config';
 import { connect } from 'mongoose';
+import Clients from './src/app/model/client';
 class App {
   constructor() {
     this.express = express();
