@@ -21,11 +21,11 @@ class App {
     fs.createReadStream('./assets/mockdata.csv')
     .pipe(csv({}))
     .on('data', (data) => this.allClients.push(data))
-    .on('end', () => this.LoadAndSaveSVG());
+    .on('end', () => this.LoadAndSaveCSV());
     
   }
 
-  async LoadAndSaveSVG(){
+  async LoadAndSaveCSV(){
     this.allClients.forEach(async(client) => {
       await Clients.create(client);
     })
