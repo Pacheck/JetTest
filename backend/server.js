@@ -31,28 +31,6 @@ class App {
     this.allClients.forEach(async(client) => {
       await Clients.create(client);
     })
-    // if(operators.length > 0){
-    //   console.log('loading data..')
-    //   let clientsCounter = 0;
-    //   let operatorsCounter = 0;
-
-    //   while(true){
-    //     if(clientsCounter >= this.allClients.length){
-    //         break;
-    //     }
-
-    //     if(operatorsCounter == operators.length){
-    //         operatorsCounter = 0;
-    //     }
-        
-    //     operators[operatorsCounter].clients.push(this.allClients[clientsCounter]);
-        
-
-    //     clientsCounter++;
-    //     operatorsCounter++;
-    //   }
-    //   return this.updateDataBase(operators);
-    // }
   }
 
   async database() {
