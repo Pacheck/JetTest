@@ -14,8 +14,18 @@ const UseAPI = () => {
       console.log(err)
     }
   }
+
+  const removeOperatorFromServer = async(url: string) => {
+    try{
+      const response = await Axios.delete(url);
+      console.log('Deletado', response.data);
+      // setData(response.data);
+    }catch(err){
+      console.log(err);
+    }
+  }
   
-  return [data, setData, loadDataFromServer] as const;
+  return [data, setData, loadDataFromServer, removeOperatorFromServer] as const;
 };
 
 export default UseAPI;
