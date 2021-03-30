@@ -28,9 +28,12 @@ class App {
   }
 
   async LoadAndSaveCSV(){
-    this.allClients.forEach(async(client) => {
-      await Clients.create(client);
-    })
+    const currentClientsAtDB = await Clients.find({});
+    if(currentClientsAtDB.length <= 0){
+      this.allClients.forEach(async(client) => {
+        await Clients.create(client);
+      })
+    }
   }
 
   async database() {

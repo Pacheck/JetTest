@@ -9,6 +9,8 @@ routes.get("/", function(req, res) {
 
 routes.get("/operators", OperatorController.index);
 
+routes.get("/operators/:id", OperatorController.indexOne);
+
 routes.post("/operators", OperatorController.store);
 
 routes.delete("/operators/:id", OperatorController.delete);

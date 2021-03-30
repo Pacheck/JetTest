@@ -12,6 +12,17 @@ class OperatorController {
         }
     }
 
+    async indexOne(request, response){
+        const { id } = request.params;
+        try {
+            const operator = await Operator.find({ id });
+            console.log(operator);
+            return response.status(200).json(operator);
+        }catch(err){
+            return response.status(400).json({ message: 'Error at indexing one ' }) 
+        }
+    }
+
     async store(request, response){
         const { body } = request;
         body.id = uuidv4();
