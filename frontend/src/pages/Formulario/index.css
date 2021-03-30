@@ -1,0 +1,8 @@
+.FormClass {
+  width: 60%;
+}
+
+.ContainerClass {
+  display: flex;
+  width: 100%;
+}
