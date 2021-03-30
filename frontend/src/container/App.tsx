@@ -1,17 +1,16 @@
 import React from "react";
-import customHook from "../hooks/useAPI";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Listagem from "../pages/Listagem";
+import Formulario from "../pages/Formulario";
 
 const App = () => {
-  const [data, loadDataFromServer] = customHook();
-  const getDataFromAPI = async () => {
-    const response = loadDataFromServer("/clients");
-  };
-
   return (
-    <>
-      <h1>hello world</h1>
-      <button onClick={getDataFromAPI}>Pega dado do server</button>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Listagem} />
+        <Route path="/formulario" component={Formulario} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
